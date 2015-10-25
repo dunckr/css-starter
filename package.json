@@ -1,7 +1,7 @@
 {
   "name": "css-starter",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Simple boilerplate for creating a CSS library",
   "main": "lib/css-starter.css",
   "scripts": {
     "start": "npm run clean && webpack-dev-server",
@@ -13,7 +13,12 @@
     "type": "git",
     "url": "git@github.com:dunckr/css-starter"
   },
-  "keywords": [],
+  "keywords": [
+    "css",
+    "library",
+    "boilerplate",
+    "starter"
+  ],
   "author": "Duncan Beaton <dunckr@gmail.com>",
   "license": "MIT",
   "bugs": {
