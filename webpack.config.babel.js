@@ -10,7 +10,7 @@ const paths = {
   BUILD: path.resolve(__dirname, './lib')
 };
 const config = {
-  file: 'sparklers.css'
+  file: 'css-starter.css'
 };
 
 var webpackBase = {

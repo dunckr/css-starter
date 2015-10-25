@@ -1,6 +1,5 @@
 $time: 10s;
-
-.control {
+.animation {
   animation: fadein $time;
 }
 

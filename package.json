@@ -1,25 +1,25 @@
 {
-  "name": "sparklers",
+  "name": "css-starter",
   "version": "0.0.1",
   "description": "",
-  "main": "lib/sparklers.css",
+  "main": "lib/css-starter.css",
   "scripts": {
     "start": "npm run clean && webpack-dev-server",
-    "build": "npm run clean && webpack && mkdir -p lib && cp example/sparklers.css lib",
+    "build": "npm run clean && webpack && mkdir -p lib && cp example/css-starter.css lib",
     "clean": "rm -f example/bundle.js example/bundle.js.map && rm -rf lib && mkdir lib",
     "gh-pages": "git checkout gh-pages && git rebase origin/master --force-rebase && npm run build && git add . && git commit --amend --no-edit && git push --force && git checkout master"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:dunckr/sparklers"
+    "url": "git@github.com:dunckr/css-starter"
   },
   "keywords": [],
   "author": "Duncan Beaton <dunckr@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dunckr/sparklers/issues"
+    "url": "https://github.com/dunckr/css-starter/issues"
   },
-  "homepage": "https://github.com/dunckr/sparklers",
+  "homepage": "https://github.com/dunckr/css-starter",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.0.3",
