@@ -28,10 +28,6 @@ var webpackBase = {
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     }]
   },
-  postcss: [
-    require('precss'),
-    require('autoprefixer')
-  ],
   plugins: [
     new ExtractTextPlugin(config.file, {
       allChunks: true
@@ -48,6 +44,10 @@ if (TARGET === 'start' || !TARGET) {
       'webpack/hot/dev-server',
       paths.EXAMPLE + '/index.js'
     ],
+    postcss: [
+      require('precss'),
+      require('stylelint')
+    ],
     debug: true,
     devtool: 'source-map',
     devServer: {
@@ -62,6 +62,11 @@ if (TARGET === 'start' || !TARGET) {
 
 if (TARGET === 'build') {
   module.exports = assign(webpackBase, {
-    entry: paths.EXAMPLE + '/index.js'
+    entry: paths.EXAMPLE + '/index.js',
+    postcss: [
+      require('precss'),
+      require('autoprefixer'),
+      require('cssnano')
+    ],
   });
 }
