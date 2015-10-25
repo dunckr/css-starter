@@ -10,7 +10,7 @@ const paths = {
   BUILD: path.resolve(__dirname, './lib')
 };
 const config = {
-  filename: 'sparkler.css'
+  file: 'sparklers.css'
 };
 
 var webpackBase = {
@@ -25,14 +25,15 @@ var webpackBase = {
       loaders: ['babel-loader?stage=0']
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss')
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     }]
   },
   postcss: [
+    require('precss'),
     require('autoprefixer')
   ],
   plugins: [
-    new ExtractTextPlugin(config.filename, {
+    new ExtractTextPlugin(config.file, {
       allChunks: true
     }),
     new webpack.optimize.OccurenceOrderPlugin(),

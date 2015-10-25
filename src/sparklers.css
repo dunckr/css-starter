@@ -1,0 +1,14 @@
+$time: 10s;
+
+.control {
+  animation: fadein $time;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

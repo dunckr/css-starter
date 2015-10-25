@@ -1,1 +1,1 @@
-require('../src/sparkers.css');
+require('../src/sparklers.css');
