@@ -1,48 +1,50 @@
-import webpack from 'webpack';
-import path from 'path';
-import assign from 'object-assign';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+const webpack = require('webpack')
+const path = require('path')
+const assign = require('object-assign')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const TARGET = process.env.npm_lifecycle_event;
+const TARGET = process.env.npm_lifecycle_event
+const config = {
+  output: 'css-starter.css',
+  filename: 'index.js',
+  bundle: 'bundle.js'
+}
 const paths = {
   SRC: path.resolve(__dirname, './src'),
   EXAMPLE: path.resolve(__dirname, './example'),
   BUILD: path.resolve(__dirname, './lib')
-};
-const config = {
-  file: 'css-starter.css'
-};
+}
 
 var webpackBase = {
   output: {
     path: paths.EXAMPLE,
-    filename: 'bundle.js'
+    filename: config.bundle
   },
   module: {
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loaders: ['babel-loader?stage=0']
+      loader: 'babel-loader'
     }, {
-      test: /\.css$/,
+      test: /\.css$|\.scss$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     }]
   },
   plugins: [
-    new ExtractTextPlugin(config.file, {
+    new ExtractTextPlugin(config.output, {
       allChunks: true
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-};
+}
 
 if (TARGET === 'start' || !TARGET) {
   module.exports = assign(webpackBase, {
     entry: [
       'webpack/hot/dev-server',
-      paths.EXAMPLE + '/index.js'
+      `${paths.EXAMPLE}/${config.filename}`
     ],
     postcss: [
       require('precss'),
@@ -57,16 +59,16 @@ if (TARGET === 'start' || !TARGET) {
       progress: true,
       port: '8080'
     }
-  });
+  })
 }
 
 if (TARGET === 'build') {
   module.exports = assign(webpackBase, {
-    entry: paths.EXAMPLE + '/index.js',
+    entry: `${paths.EXAMPLE}/${config.filename}`,
     postcss: [
       require('precss'),
       require('autoprefixer'),
       require('cssnano')
     ],
-  });
+  })
 }

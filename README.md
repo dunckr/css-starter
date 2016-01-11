@@ -1,13 +1,15 @@
 # CSS-Starter
 
-Simple boilerplate for creating a CSS library. 
+Simple boilerplate for creating a CSS library.
 
 Using:
 + [Autoprefixer](https://github.com/postcss/autoprefixer)
 + [CSSNano](https://github.com/ben-eb/cssnano)
-+ [CSSNext](https://github.com/cssnext/cssnext)
 + [PreCSS](https://github.com/jonathantneal/precss)
 + [Webpack](https://webpack.github.io/)
++ [Stylelint](https://github.com/stylelint/stylelint)
++ [Stylelint-config-suitcss](https://github.com/stylelint/stylelint-config-suitcss)
++ [postcss-css-next](https://github.com/MoOx/postcss-cssnext)
 
 ## Demo
 
